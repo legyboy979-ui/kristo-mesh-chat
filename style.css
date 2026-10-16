@@ -1,0 +1,143 @@
+*{margin:0;padding:0;box-sizing:border-box}
+body{
+  font-family:system-ui,sans-serif;
+  background:#05070d;color:#e9f3ff;
+  min-height:100dvh;
+}
+.hidden{display:none!important}
+
+#splash{
+  position:fixed;inset:0;display:flex;flex-direction:column;
+  align-items:center;justify-content:center;gap:20px;
+  background:radial-gradient(circle at 50% 40%,#0a1424,#03060c 70%);
+  z-index:100;transition:.7s;
+}
+#splash.done{opacity:0;visibility:hidden;pointer-events:none}
+.ring{
+  width:200px;height:200px;border-radius:50%;
+  border:2px solid #38e1ff;
+  position:absolute;
+  animation:ringPulse 2.5s infinite;
+}
+@keyframes ringPulse{
+  0%{transform:scale(.5);opacity:0}
+  40%{opacity:1}
+  100%{transform:scale(1.6);opacity:0}
+}
+#splash h1{font-size:22px;letter-spacing:.2em;color:#fff}
+#splash h1 span{color:#4dffb0}
+#splash p{color:#8fa4c0;font-size:13px}
+
+#app{max-width:520px;margin:0 auto;padding:16px;min-height:100dvh}
+header{
+  display:flex;justify-content:space-between;align-items:center;
+  padding-bottom:14px;border-bottom:1px solid rgba(120,200,255,.12);
+  margin-bottom:16px;
+}
+header b{font-size:13px;letter-spacing:.1em}
+.mini{
+  background:rgba(56,225,255,.1);border:1px solid rgba(56,225,255,.3);
+  color:#38e1ff;padding:4px 10px;border-radius:8px;font-size:11px;cursor:pointer;
+}
+
+.screen{padding-top:8px}
+.warn{
+  color:#8fa4c0;font-size:13px;line-height:1.5;
+  padding:14px;border-radius:14px;
+  background:rgba(18,26,40,.7);border:1px solid rgba(120,200,255,.12);
+  margin-bottom:16px;
+}
+
+.card{
+  width:100%;padding:16px;margin-bottom:12px;text-align:left;
+  background:rgba(24,34,52,.75);border:1px solid rgba(120,200,255,.12);
+  border-radius:16px;color:inherit;cursor:pointer;transition:.2s;
+}
+.card:hover{border-color:#38e1ff;transform:translateY(-2px)}
+.card h2{color:#38e1ff;font-size:16px;margin-bottom:4px}
+.card p{color:#8fa4c0;font-size:12px}
+
+.back{
+  color:#8fa4c0;background:none;border:none;
+  font-size:13px;padding:6px 0;cursor:pointer;margin-bottom:10px;
+}
+h2{font-size:18px;margin-bottom:16px}
+
+.pin-box{
+  padding:22px;text-align:center;border-radius:16px;
+  background:rgba(24,34,52,.75);border:1px solid rgba(120,200,255,.12);
+  margin-bottom:14px;
+}
+#pinValue{
+  font-size:38px;font-weight:800;letter-spacing:.3em;
+  color:#fff;text-shadow:0 0 24px rgba(56,225,255,.55);
+  font-variant-numeric:tabular-nums;
+}
+#pinTimer{color:#4dffb0;font-weight:700}
+
+.btn{
+  width:100%;padding:13px;margin-top:10px;border-radius:12px;
+  background:rgba(255,255,255,.05);border:1px solid rgba(120,200,255,.15);
+  color:#e9f3ff;font-size:13px;font-weight:600;cursor:pointer;
+}
+.btn-primary{
+  background:linear-gradient(135deg,#38e1ff,#4dffb0);
+  color:#04121a;border:none;
+}
+
+.pin-inputs{
+  display:flex;gap:6px;justify-content:center;margin:20px 0;
+}
+.pin-cell{
+  width:42px;height:54px;text-align:center;font-size:22px;font-weight:800;
+  background:rgba(255,255,255,.05);border:1.5px solid rgba(120,200,255,.15);
+  border-radius:10px;color:#fff;outline:none;
+}
+.pin-cell:focus{border-color:#38e1ff;background:rgba(56,225,255,.1)}
+.pin-cell.filled{border-color:#4dffb0}
+
+.error{color:#ff5570;font-size:12px;text-align:center;min-height:16px}
+
+.chat-head{
+  display:flex;align-items:center;gap:10px;
+  padding-bottom:12px;border-bottom:1px solid rgba(120,200,255,.12);
+  margin-bottom:10px;
+}
+.chat-head b{font-size:14px}
+.chat-head small{color:#8fa4c0;font-size:11px;display:block}
+.messages{
+  height:60vh;overflow-y:auto;display:flex;flex-direction:column;
+  gap:8px;padding:10px 0;
+}
+.msg{
+  max-width:78%;padding:10px 14px;border-radius:14px;
+  font-size:14px;line-height:1.4;word-wrap:break-word;
+}
+.msg.out{
+  align-self:flex-end;
+  background:linear-gradient(135deg,#38e1ff,#4dffb0);
+  color:#04121a;border-bottom-right-radius:4px;
+}
+.msg.in{
+  align-self:flex-start;
+  background:rgba(24,34,52,.9);border:1px solid rgba(120,200,255,.12);
+  border-bottom-left-radius:4px;
+}
+.msg.sys{
+  align-self:center;font-size:11px;color:#5f748f;
+  background:rgba(255,255,255,.03);padding:4px 12px;border-radius:20px;
+}
+#composer{
+  display:flex;gap:8px;margin-top:10px;
+}
+#msgInput{
+  flex:1;padding:12px 16px;border-radius:24px;
+  background:rgba(255,255,255,.05);border:1px solid rgba(120,200,255,.15);
+  color:#fff;font-size:14px;outline:none;
+}
+#msgInput:focus{border-color:#38e1ff}
+#composer button{
+  padding:0 20px;border-radius:24px;border:none;
+  background:linear-gradient(135deg,#38e1ff,#4dffb0);
+  color:#04121a;font-weight:700;cursor:pointer;
+}

@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>KRISTO MESH CHAT</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<div id="splash">
+  <div class="ring"></div>
+  <h1>KRISTO <span>MESH</span> CHAT</h1>
+  <p>Offline. Private. Peer-to-peer.</p>
+</div>
+
+<main id="app" hidden>
+  <header>
+    <b>KRISTO MESH CHAT</b>
+    <button id="lang" class="mini">EN</button>
+  </header>
+
+  <section id="home" class="screen">
+    <p class="warn">No internet. No SIM. No router. Direct Bluetooth.</p>
+    <button class="card" id="goCreate">
+      <h2>Create PIN</h2>
+      <p>Start a session and share a PIN</p>
+    </button>
+    <button class="card" id="goEnter">
+      <h2>Enter PIN</h2>
+      <p>Join a session using a peer's PIN</p>
+    </button>
+  </section>
+
+  <section id="create" class="screen hidden">
+    <button class="back" data-go="home">‹ Back</button>
+    <h2>Your Session PIN</h2>
+    <div class="pin-box">
+      <div id="pinValue">------</div>
+      <p>Expires in <span id="pinTimer">05:00</span></p>
+    </div>
+    <button id="copyPin" class="btn">Copy</button>
+    <button id="regenPin" class="btn">Regenerate</button>
+  </section>
+
+  <section id="enter" class="screen hidden">
+    <button class="back" data-go="home">‹ Back</button>
+    <h2>Enter Peer PIN</h2>
+    <div class="pin-inputs">
+      <input maxlength="1" inputmode="numeric" class="pin-cell">
+      <input maxlength="1" inputmode="numeric" class="pin-cell">
+      <input maxlength="1" inputmode="numeric" class="pin-cell">
+      <input maxlength="1" inputmode="numeric" class="pin-cell">
+      <input maxlength="1" inputmode="numeric" class="pin-cell">
+      <input maxlength="1" inputmode="numeric" class="pin-cell">
+    </div>
+    <p id="pinError" class="error"></p>
+    <button id="connect" class="btn btn-primary">Connect</button>
+  </section>
+
+  <section id="chat" class="screen hidden">
+    <div class="chat-head">
+      <button class="back" data-go="home">‹</button>
+      <div>
+        <b id="peerName">KRISTO-XXXX</b>
+        <small id="chatStatus">Connecting...</small>
+      </div>
+    </div>
+    <div id="messages" class="messages"></div>
+    <form id="composer">
+      <input id="msgInput" placeholder="Message..." autocomplete="off">
+      <button type="submit">Send</button>
+    </form>
+  </section>
+</main>
+
+<script src="app.js"></script>
+</body>
+</html>
